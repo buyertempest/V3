@@ -4,10 +4,10 @@ wget -q -O /etc/systemd/system/limitvmess.service "${REPO}files/limitvmess.servi
 wget -q -O /etc/systemd/system/limitvless.service "${REPO}files/limitvless.service" && chmod +x limitvless.service >/dev/null 2>&1
 wget -q -O /etc/systemd/system/limittrojan.service "${REPO}files/limittrojan.service" && chmod +x limittrojan.service >/dev/null 2>&1
 wget -q -O /etc/systemd/system/limitshadowsocks.service "${REPO}files/limitshadowsocks.service" && chmod +x limitshadowsocks.service >/dev/null 2>&1
-wget -q -O /etc/xray/limit.vmess "${REPO}files/vmess" >/dev/null 2>&1
-wget -q -O /etc/xray/limit.vless "${REPO}files/vless" >/dev/null 2>&1
-wget -q -O /etc/xray/limit.trojan "${REPO}files/trojan" >/dev/null 2>&1
-wget -q -O /etc/xray/limit.shadowsocks "${REPO}files/shadowsocks" >/dev/null 2>&1
+wget -q -O /etc/xray/limit.vmess "${REPO}file/vmess" >/dev/null 2>&1
+wget -q -O /etc/xray/limit.vless "${REPO}file/vless" >/dev/null 2>&1
+wget -q -O /etc/xray/limit.trojan "${REPO}file/trojan" >/dev/null 2>&1
+wget -q -O /etc/xray/limit.shadowsocks "${REPO}file/shadowsocks" >/dev/null 2>&1
 chmod +x /etc/xray/limit.vmess
 chmod +x /etc/xray/limit.vless
 chmod +x /etc/xray/limit.trojan
