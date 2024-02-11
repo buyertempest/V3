@@ -236,7 +236,7 @@ echo -e "    _______________________________"
 echo -e "   |\e[1;32mPlease Select a Domain Type Below \e[0m|"
 echo -e "    _______________________________"
 echo -e "     \e[1;32m1)\e[0m Your Domain (REKOMENDASI)"
-echo -e "     \e[1;32m2)\e[0m Random Domain "
+echo -e "     \e[1;32m2)\e[0m Random Domain khusus (Digital Ocean) "
 echo -e "   _______________________________"
 read -p "   Please select numbers 1-2 or Any Button(Random) : " host
 echo ""
