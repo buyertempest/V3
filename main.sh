@@ -254,7 +254,7 @@ echo $host1 > /etc/xray/domain
 echo $host1 > /root/domain
 echo ""
 elif [[ $host == "2" ]]; then
-wget ${REPO}files/cf.sh && chmod +x cf.sh && ./cf.sh
+wget ${REPO}file/cf.sh && chmod +x cf.sh && ./cf.sh
 rm -f /root/cf.sh
 clear
 else
@@ -279,7 +279,7 @@ TEXT="
 <code>Exp Sc : </code><code>$EXPSC</code>
 <code>────────────────────</code>
 <i>Automatic Notification from Github</i>
-"'&reply_markup={"inline_keyboard":[[{"text":"ᴏʀᴅᴇʀ","url":"https://t.me/ARI_VPN_STORE"},{"text":"Contack","url":"https://wa.me/6281327393959"}]]}'
+"'&reply_markup={"inline_keyboard":[[{"text":"ᴏʀᴅᴇʀ","url":"https://t.me/rantempest"},{"text":"Contack","url":"https://wa.me/6283141751466"}]]}'
 curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
 }
 clear
@@ -320,14 +320,14 @@ mkdir -p /etc/ssh
 mkdir -p /usr/bin/xray/
 mkdir -p /var/log/xray/
 mkdir -p /var/www/html
-mkdir -p /etc/kyt/files/vmess/ip
-mkdir -p /etc/kyt/files/vless/ip
-mkdir -p /etc/kyt/files/trojan/ip
-mkdir -p /etc/kyt/files/ssh/ip
-mkdir -p /etc/files/vmess
-mkdir -p /etc/files/vless
-mkdir -p /etc/files/trojan
-mkdir -p /etc/files/ssh
+mkdir -p /etc/kyt/file/vmess/ip
+mkdir -p /etc/kyt/file/vless/ip
+mkdir -p /etc/kyt/file/trojan/ip
+mkdir -p /etc/kyt/file/ssh/ip
+mkdir -p /etc/file/vmess
+mkdir -p /etc/file/vless
+mkdir -p /etc/file/trojan
+mkdir -p /etc/file/ssh
 chmod +x /var/log/xray
 touch /etc/xray/domain
 touch /var/log/xray/access.log
@@ -390,7 +390,7 @@ print_success "Konfigurasi Packet"
 function ssh(){
 clear
 print_install "Memasang Password SSH"
-wget -O /etc/pam.d/common-password "${REPO}files/password"
+wget -O /etc/pam.d/common-password "${REPO}file/password"
 chmod +x /etc/pam.d/common-password
 DEBIAN_FRONTEND=noninteractive dpkg-reconfigure keyboard-configuration
 debconf-set-selections <<<"keyboard-configuration keyboard-configuration/altgr select The default for the keyboard layout"
@@ -441,9 +441,9 @@ print_success "Password SSH"
 function udp_mini(){
 clear
 print_install "Memasang Service limit Quota"
-wget raw.githubusercontent.com/buyertempest/V3/main/files/limit.sh && chmod +x limit.sh && ./limit.sh
+wget raw.githubusercontent.com/buyertempest/V3/main/file/limit.sh && chmod +x limit.sh && ./limit.sh
 cd
-wget -q -O /usr/bin/limit-ip "${REPO}files/limit-ip"
+wget -q -O /usr/bin/limit-ip "${REPO}file/limit-ip"
 chmod +x /usr/bin/*
 cd /usr/bin
 sed -i 's/\r//' limit-ip
@@ -455,7 +455,7 @@ Description=My
 ProjectAfter=network.target
 [Service]
 WorkingDirectory=/root
-ExecStart=/usr/bin/files-ip vmip
+ExecStart=/usr/bin/file-ip vmip
 Restart=always
 [Install]
 WantedBy=multi-user.target
@@ -469,7 +469,7 @@ Description=My
 ProjectAfter=network.target
 [Service]
 WorkingDirectory=/root
-ExecStart=/usr/bin/files-ip vlip
+ExecStart=/usr/bin/file-ip vlip
 Restart=always
 [Install]
 WantedBy=multi-user.target
@@ -483,7 +483,7 @@ Description=My
 ProjectAfter=network.target
 [Service]
 WorkingDirectory=/root
-ExecStart=/usr/bin/files-ip trip
+ExecStart=/usr/bin/file-ip trip
 Restart=always
 [Install]
 WantedBy=multi-user.target
@@ -492,11 +492,11 @@ systemctl daemon-reload
 systemctl restart trip
 systemctl enable trip
 mkdir -p /usr/local/kyt/
-wget -q -O /usr/local/kyt/udp-mini "${REPO}files/udp-mini"
+wget -q -O /usr/local/kyt/udp-mini "${REPO}file/udp-mini"
 chmod +x /usr/local/kyt/udp-mini
-wget -q -O /etc/systemd/system/udp-mini-1.service "${REPO}files/udp-mini-1.service"
-wget -q -O /etc/systemd/system/udp-mini-2.service "${REPO}files/udp-mini-2.service"
-wget -q -O /etc/systemd/system/udp-mini-3.service "${REPO}files/udp-mini-3.service"
+wget -q -O /etc/systemd/system/udp-mini-1.service "${REPO}file/udp-mini-1.service"
+wget -q -O /etc/systemd/system/udp-mini-2.service "${REPO}file/udp-mini-2.service"
+wget -q -O /etc/systemd/system/udp-mini-3.service "${REPO}file/udp-mini-3.service"
 systemctl disable udp-mini-1
 systemctl stop udp-mini-1
 systemctl enable udp-mini-1
@@ -509,12 +509,12 @@ systemctl disable udp-mini-3
 systemctl stop udp-mini-3
 systemctl enable udp-mini-3
 systemctl start udp-mini-3
-print_success "files Quota Service"
+print_success "file Quota Service"
 }
 function ssh_slow(){
 clear
 print_install "Memasang modul SlowDNS Server"
-wget -q -O /tmp/nameserver "${REPO}files/nameserver" >/dev/null 2>&1
+wget -q -O /tmp/nameserver "${REPO}file/nameserver" >/dev/null 2>&1
 chmod +x /tmp/nameserver
 bash /tmp/nameserver | tee /root/install.log
 print_success "SlowDNS"
@@ -523,7 +523,7 @@ clear
 function ins_SSHD(){
 clear
 print_install "Memasang SSHD"
-wget -q -O /etc/ssh/sshd_config "${REPO}files/sshd" >/dev/null 2>&1
+wget -q -O /etc/ssh/sshd_config "${REPO}file/sshd" >/dev/null 2>&1
 chmod 700 /etc/ssh/sshd_config
 /etc/init.d/ssh restart
 systemctl restart ssh
@@ -566,7 +566,7 @@ print_success "Vnstat"
 function ins_openvpn(){
 clear
 print_install "Menginstall OpenVPN"
-wget ${REPO}files/openvpn &&  chmod +x openvpn && ./openvpn
+wget ${REPO}file/openvpn &&  chmod +x openvpn && ./openvpn
 /etc/init.d/openvpn restart
 print_success "OpenVPN"
 }
@@ -582,7 +582,7 @@ cd wondershaper
 sudo make install
 cd
 rm -rf wondershaper
-echo > /home/files
+echo > /home/file
 apt install msmtp-mta ca-certificates bsd-mailx -y
 cat<<EOF>>/etc/msmtprc
 defaults
@@ -599,7 +599,7 @@ password jokerman77
 logfile ~/.msmtp.log
 EOF
 chown -R www-data:www-data /etc/msmtprc
-wget -q -O /etc/ipserver "${REPO}files/ipserver" && bash /etc/ipserver
+wget -q -O /etc/ipserver "${REPO}file/ipserver" && bash /etc/ipserver
 print_success "Backup Server"
 }
 clear
@@ -619,7 +619,7 @@ sed -i '$ i\/swapfile      swap swap   defaults    0 0' /etc/fstab
 chronyd -q 'server 0.id.pool.ntp.org iburst'
 chronyc sourcestats -v
 chronyc tracking -v
-wget ${REPO}files/bbr.sh &&  chmod +x bbr.sh && ./bbr.sh
+wget ${REPO}file/bbr.sh &&  chmod +x bbr.sh && ./bbr.sh
 print_success "Swap 1 G"
 }
 function ins_Fail2ban(){
@@ -643,7 +643,7 @@ clear
 print_install "Menginstall ePro WebSocket Proxy"
 wget -O /usr/bin/ws "${REPO}files/ws" >/dev/null 2>&1
 wget -O /usr/bin/tun.conf "${REPO}cfg/tun.conf" >/dev/null 2>&1
-wget -O /etc/systemd/system/ws.service "${REPO}files/ws.service" >/dev/null 2>&1
+wget -O /etc/systemd/system/ws.service "${REPO}file/ws.service" >/dev/null 2>&1
 chmod +x /etc/systemd/system/ws.service
 chmod +x /usr/bin/ws
 chmod 644 /usr/bin/tun.conf
@@ -654,7 +654,7 @@ systemctl start ws
 systemctl restart ws
 wget -q -O /usr/local/share/xray/geosite.dat "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" >/dev/null 2>&1
 wget -q -O /usr/local/share/xray/geoip.dat "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat" >/dev/null 2>&1
-wget -O /usr/sbin/ftvpn "${REPO}files/ftvpn" >/dev/null 2>&1
+wget -O /usr/sbin/ftvpn "${REPO}file/ftvpn" >/dev/null 2>&1
 chmod +x /usr/sbin/ftvpn
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
 iptables -A FORWARD -m string --string "announce_peer" --algo bm -j DROP
