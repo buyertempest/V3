@@ -10,7 +10,7 @@
 </code></pre>
 
 ### PERINTAH UPDATE 
-<pre><code>wget https://raw.githubusercontent.com/buyertempest/V3/main/files/update && chmod +x update && ./update</code></pre>
+<pre><code>wget https://raw.githubusercontent.com/buyertempest/V3/main/file/update && chmod +x update && ./update</code></pre>
 
 ### TESTED ON OS 
 - UBUNTU 20
