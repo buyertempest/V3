@@ -352,7 +352,7 @@ chown www-data.www-data $domainSock_dir
 latest_version="$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version $latest_version
 wget -O /etc/xray/config.json "${REPO}cfg/config.json" >/dev/null 2>&1
-wget -O /etc/systemd/system/runn.service "${REPO}files/runn.service" >/dev/null 2>&1
+wget -O /etc/systemd/system/runn.service "${REPO}file/runn.service" >/dev/null 2>&1
 domain=$(cat /etc/xray/domain)
 IPVS=$(cat /etc/xray/ipvps)
 print_success "Core Xray 1.8.1 Latest Version"
@@ -641,7 +641,7 @@ print_success "Fail2ban"
 function ins_epro(){
 clear
 print_install "Menginstall ePro WebSocket Proxy"
-wget -O /usr/bin/ws "${REPO}files/ws" >/dev/null 2>&1
+wget -O /usr/bin/ws "${REPO}file/ws" >/dev/null 2>&1
 wget -O /usr/bin/tun.conf "${REPO}cfg/tun.conf" >/dev/null 2>&1
 wget -O /etc/systemd/system/ws.service "${REPO}file/ws.service" >/dev/null 2>&1
 chmod +x /etc/systemd/system/ws.service
